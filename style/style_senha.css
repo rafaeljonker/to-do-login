@@ -1,0 +1,134 @@
+@import url("fonts.css");
+body {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: lightgray;
+  display: flex;
+
+  
+ }
+
+
+
+
+img {
+  margin-top: 50px;
+  margin-bottom: 5px;
+}
+
+
+
+
+button {
+  background-color: black;
+  color: white;
+  border: solid 2px white;
+  border-radius: 18px;
+  padding: 16px 64px 16px 64px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+}
+
+button:hover {
+  background-color: gray;
+}
+
+.body-white {
+  display: flex;
+  flex-direction: column;
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.body-white p {
+  text-align: center;
+  color: #a5a5a5;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 30px;
+}
+
+.body-white h3 {
+  margin-top: 50px;
+  color: #000;
+    margin-bottom: 0px;
+  text-align: center;
+  font-family: 'Poppins',sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.bk-white a{
+  color: black;
+  
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  margin-top: 5rem;
+  
+}
+input {
+  border: 1px solid rgba(0, 0, 0, 0);
+  background: #f3ebeb;
+  height: 60.8px;
+  width: 600px;
+  box-sizing: border-box;
+    padding: 0px 20px ;
+  
+}
+
+.form_flex img{
+    margin: 0rem;    
+    background: #F3EBEB;
+    padding-left: 20px;
+    padding-right: 10px;    
+
+
+
+}
+
+.form_flex{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 640px;
+    
+}
+
+
+form button{
+    margin-top: 5%;
+    border: none;
+}
+
+form a{
+  margin-top: 2%;
+}
+body{
+display: grid;
+grid-template-columns: 15% 15% 1fr 15% 15%;
+}
+
+
+.bk-white{
+background-color: white;
+min-width: 50rem;
+width: 500px;
+height: 625px;
+
+}
+
+
+
+a{
+  text-decoration: none;
+}
