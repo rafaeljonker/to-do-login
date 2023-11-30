@@ -14,23 +14,54 @@
   <div class="bk-white">
       <h3>Recupere sua senha</h3>
       <p>Preencha seus dados</p>
-      <form action="">
+      <form action="PUT">
         <div  class="form_flex">
-          <input placeholder="            Email" type="text" />
+          <input placeholder="            Email" type="text" id="user" />
           <img src="./images/vector2.svg" alt="" />
         </div>
         <div class="form_flex">
-          <input placeholder="            Nova senha" type="password" />
+          <input placeholder="            Nova senha" type="password" id="password" />
           <img src="./images/vetor3.svg" alt="" />
         </div>
         <a href="login.html">Voltar à tela de login</a>  
-        <button>Confirmar</button>
+        <input type="button" value="Enviar" onclick="checkStatus()">
      
     </form>
       
   </div>
 </div>
+<div id="status"></div>
 </body>
+<script >
+  async function checkStatus() {
+      try {
+          const email = document.getElementById('user').value;
+          const password = document.getElementById('password').value;
+  
+          const response = await fetch('https://localhost:7023/RecoveryPassword', {
+              method: 'PUT',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Access-Control-Allow-Origin': '*',
+              },
+              body: JSON.stringify({ email, password }),
+          });
+  
+          if (response.ok) {
+              const data = await response.text();
+              document.getElementById('status').innerText = data;
+              alert(data);
+          } else {
+              const fail = 'Email Inexistente'
+              document.getElementById('status').innerText = fail ;
+              alert(fail)
+          }
+      } catch (error) {
+          document.getElementById('status').innerText = `Erro durante a solicitação: ${error.message}`;
+      }
+  }
+  
+  </script>
 </html>
 
 

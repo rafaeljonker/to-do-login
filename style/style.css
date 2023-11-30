@@ -174,5 +174,6 @@ width: 22.9375rem;
 height: 39.0625rem;
 }
 
-
-
+#status{
+display: none;
+}

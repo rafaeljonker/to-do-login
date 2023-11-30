@@ -16,7 +16,10 @@ img {
   margin-bottom: 5px;
 }
 
-
+#status{
+  display: none;
+  }
+  
 
 
 button {
