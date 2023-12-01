@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style_login.css" />
+  </head>
+  <body>
+    <div class="body">
+      <div class="black-body">
+        
+        <img class="logo" src="./images/logo.svg" alt="" />
+        <a href="homepage.html"><button class="button">Voltar</button></a>    
+      </div>
+
+      <div class="body-white">
+        <div class="bk-white">
+            <form action="GET">
+              <div  class="form_flex">
+                <input placeholder="   Digite o ID" type="text" id="id"/>
+                <img src="./images/vector2.svg" alt="" />
+              </div>
+              <p>Cuidado, essa ação é irreverssivel</p>
+              <input  type="button" value="Deletar" onclick="checkStatus()"  class="button">
+           
+          </form>
+            
+        </div>
+      </div>
+    </div>
+    
+  </body>
+  <script >
+    async function checkStatus() {
+        
+        try {
+            const id = document.getElementById('id').value;
+          
+    
+            const response = await fetch(`https://localhost:7023/DeleteUser/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                },
+            
+            });
+    
+            if (response.ok) {
+                const data = await response.text();
+               alert('Usuario Deletado com Sucesso');
+            } else {
+                const fail = 'Usuário Inexistente'
+                document.getElementById('status').innerText = fail ;
+                alert(fail)
+            }
+        } catch (error) {
+            document.getElementById('status').innerText = `Erro durante a solicitação: ${error.message}`;
+        }
+    }
+    
+    </script>
+</html>

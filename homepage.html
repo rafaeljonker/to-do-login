@@ -6,41 +6,27 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style/style_login.css" />
   </head>
-  <body>
+  <body id="homepage">
     <div class="body">
       <div class="black-body">
         <img class="logo" src="./images/logo.svg" alt="" />
         
-        <div class="bem-vindo">
-          <h3>
-            Não tem cadastro?  
-    
-          </h3>
-          <p>
-            Cadastre-se rapidamente <br> agora mesmo!
-    
-          </p>
-        </div>
 
-        <a href="criarconta.html"><button class="button">Cadastrar</button></a>
+        <a href="login.html"><button class="button">Sair</button></a>
        
       </div>
 
       <div class="body-white">
         <div class="bk-white">
-            <h3>Faça login</h3>
-            <p>Preencha seus dados</p>
+            <h3>Selecione um dos processos abaixo</h3>
             <form action="POST">
-              <div  class="form_flex">
-                <input placeholder="            Email" type="text" id="user"/>
-                <img src="./images/vector2.svg" alt="" />
-              </div>
-              <div class="form_flex">
-                <input placeholder="            Senha" type="password" id="password"/>
-                <img src="./images/vetor3.svg" alt="" />
-              </div>
-              <a href="senha.html">Esqueci minha senha</a>  
-              <input  type="button" value="Enviar" onclick="checkStatus()"  class="button">
+                <div class="grid-container">
+                  <a href="criarconta.html">Cadastre usuarios</a>
+                  <a href="deletar.html">Deletar usuarios</a>
+                  <a href="consultar.html">Consulte usuarios</a>
+                  <a href="atualizar.html">Atualizar usuarios</a>
+                </div>
+              <!-- <input  type="button" value="Enviar" onclick="checkStatus()"  class="button"> -->
            
           </form>
             
@@ -66,7 +52,8 @@
     
             if (response.ok) {
                 const data = await response.text();
-                window.location.href = "homepage.html"
+                document.getElementById('status').innerText = data;
+                alert(data);
             } else {
                 const fail = 'Login ou Senha Inválidos'
                 document.getElementById('status').innerText = fail ;

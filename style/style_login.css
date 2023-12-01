@@ -203,4 +203,10 @@ height: 625px;
 }
 
 
-
+.grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50%;
+  row-gap: 90%;
+  padding: 40px;
+}
