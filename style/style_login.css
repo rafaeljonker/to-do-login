@@ -1,4 +1,16 @@
 @import url("fonts.css");
+
+
+.logo{
+  max-width: 12.5rem;
+  max-height: 11rem;
+}
+.bem-vindo {
+  margin-bottom: 5rem;
+}
+
+
+
 body {
   margin-top: 5%;
   margin-bottom: 5%;
@@ -40,10 +52,7 @@ a {
   margin: 0px;
   text-decoration: none;
 }
-.bem-vindo {
-  margin-top: 96px;
-  margin-bottom: 80px;
-}
+
 p {
   font-size: .9375rem;
 }
@@ -85,7 +94,7 @@ p {
   line-height: normal;
 }
 
-button {
+.button {
   background-color: black;
   color: white;
   border: solid 2px white;
@@ -94,10 +103,15 @@ button {
   margin-bottom: 20px;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
+  width: auto;
+  height: auto;
 }
 
-button:hover {
+
+
+.button:hover {
   background-color: gray;
+  cursor: pointer;
 }
 
 .body-white {

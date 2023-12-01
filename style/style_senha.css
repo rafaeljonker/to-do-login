@@ -10,6 +10,8 @@ body {
 
 
 
+ 
+
 
 img {
   margin-top: 50px;
@@ -22,21 +24,26 @@ img {
   
 
 
-button {
-  background-color: black;
-  color: white;
-  border: solid 2px white;
-  border-radius: 18px;
-  padding: 16px 64px 16px 64px;
-  margin-bottom: 20px;
-  font-weight: 700;
-  font-family: 'Poppins', sans-serif;
-}
-
-button:hover {
-  background-color: gray;
-}
-
+  .button {
+    background-color: black;
+    color: white;
+    border: solid 2px white;
+    border-radius: 18px;
+    padding: 16px 64px 16px 64px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    width: auto;
+    height: auto;
+  }
+  
+  
+  
+  .button:hover {
+    background-color: gray;
+    cursor: pointer;
+  }
+  
 .body-white {
   display: flex;
   flex-direction: column;
@@ -86,7 +93,7 @@ input {
   height: 60.8px;
   width: 600px;
   box-sizing: border-box;
-    padding: 0px 20px ;
+  padding: 0px 20px ;
   
 }
 
@@ -135,3 +142,5 @@ height: 625px;
 a{
   text-decoration: none;
 }
+
+
