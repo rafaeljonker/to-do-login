@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style_login.css" />
+  </head>
+  <body>
+    <div class="body">
+      <div class="black-body">
+        
+        <img class="logo" src="./images/logo.svg" alt="" />
+        <a href="homepage.html"><button class="button">Voltar</button></a>    
+      </div>
+
+      <div class="body-white">
+        <div class="bk-white">
+            <form action="PUT">
+              <div  class="form_flex">
+                <input placeholder="   Digite o ID" type="text" id="id"/>
+                <img src="./images/vector2.svg" alt="" />
+              </div>
+              <input  type="button" value="Consultar" onclick="consultar()"  class="button">
+              <p>Preencha os novos dados</p>
+              <form action="POST">
+                <div class="form_flex">
+                  <input placeholder="            Nome" type="text" id="name" />
+                  <img src="./images/vector.svg" alt="" />
+                </div>
+                <div  class="form_flex">
+                  <input placeholder="            Email" type="text" id="email"/>
+                  <img src="./images/vector2.svg" alt="" />
+                </div>
+                <div class="form_flex">
+                  <input placeholder="            Senha" type="password" id="password"/>
+                  <img src="./images/vetor3.svg" alt="" />
+                </div>      
+                <div class="form_flex">
+                    <label for="admin">Privilegios de Administrador</label>
+                    <input type="checkbox" id="admin"/>
+                  </div>
+
+                 <input  type="button" value="Atualizar" onclick="checkStatus()"  class="button">
+          </div>
+        </div>
+      </div>
+           
+          </form>
+            <div id="status"></div>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+  <script>
+    async function consultar(){
+        try {
+            const id = document.getElementById('id').value;
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+    
+            const response = await fetch(`https://localhost:7023/GetUserById/${id}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                },
+            
+            });
+    
+            if (response.ok) {
+                const data = await response.text();
+                const newdata = JSON.parse(data);
+                name.value = newdata.name;
+                email.value = newdata.email;
+               
+
+            } else {
+                const fail = 'Usuário Inexistente'
+                document.getElementById('status').innerText = fail ;
+                alert(fail)
+            }
+        } catch (error) {
+            document.getElementById('status').innerText = `Erro durante a solicitação: ${error.message}`;
+        }
+    }
+    
+    
+
+     async function checkStatus() {
+         const name = document.getElementById('name').value;
+         const email = document.getElementById('email').value;
+         const password = document.getElementById('password').value;
+         const adminPrivileges = document.getElementById('admin').checked;
+    try {
+        const id = document.getElementById('id').value;
+
+        const response = await fetch(`https:localhost:7023/UpdateUser/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            },
+            body: JSON.stringify({ name, email, password, adminPrivileges }),
+        });
+
+        if (response.ok) {
+            const data = await response.text();
+            alert('Dados Alterados com Sucesso');
+        } else {
+            const fail = 'Usuário Inexistente';
+            document.getElementById('status').innerText = fail;
+            alert(fail);
+        }
+    } catch (error) {
+        document.getElementById('status').innerText = `Erro durante a solicitação: ${error.message}`;
+    }
+}
+    
+    </script>
+</html>
